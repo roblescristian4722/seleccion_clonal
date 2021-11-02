@@ -71,9 +71,9 @@ for g in range(gen):
     # Se realiza la mutación
     for p in range(pop_size):
         ab[p, 0] = mutate(ab[p, 0], mut, min, max)
-    mean = abs(np.mean(ab[:, 0]))
+    mean = np.mean(ab[:, 0])
     gen_mean.append(mean)
-    if mean < abs(gen_best):
+    if abs(mean) < abs(gen_best):
         gen_best = mean
         it_best = g
 
@@ -81,7 +81,7 @@ for g in range(gen):
 print(f"\nMejor solución obtenida (promedio): {gen_best}")
 print(f"Obtenido en la iteración: {it_best}")
 
-# 
+# Graficación
 fig = plt.figure()
 ax = fig.add_subplot()
 fig.suptitle("Optimización por Sistemas Inmunes Artificiales (Selección clonal)")
